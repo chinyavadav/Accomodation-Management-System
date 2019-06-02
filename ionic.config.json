@@ -1,0 +1,7 @@
+{
+  "name": "CHARMZE",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

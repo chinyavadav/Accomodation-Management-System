@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-toolbar no-border-top color="primary">
+		<ion-searchbar showCancelButton autocomplete="on" color="danger" (ionInput)="filterApartments($event)" placeholder="Filter Apartments"></ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="card-background-page">
+	<ion-card *ngFor="let apartment of apartments" (click)="pushApartment(apartment)">
+		<img src="{{ global.serverAddress }}account/avatars/{{ apartment.fldapartmentid }}.jpg"/>
+		<div class="card-title">{{ apartment.fldrooms }} Rooms</div>
+		<div class="card-subtitle">{{ apartment.fldapartmenttype }} Apartment</div>
+		<ion-row no-padding>
+            <ion-col>
+                <ion-icon name='locate'></ion-icon> {{ apartment.fldtownship }}, {{ apartment.flddistrict }}
+            </ion-col>
+        </ion-row>
+	</ion-card>
+	<ion-fab *ngIf="global.accessLevel=='LANDLORD'" right bottom>
+	    <button ion-fab (click)="showAddApartment()">
+	      <ion-icon name="add"></ion-icon>
+	    </button>
+  	</ion-fab>
+</ion-content>
